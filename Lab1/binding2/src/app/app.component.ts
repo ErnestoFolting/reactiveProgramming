@@ -2,10 +2,16 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "my-app",
-  template: ` <div [class.isredbox]="isRed"></div>
+  template: `
+    <div [class.isredbox]="isRed"></div>
     <div [class.isredbox]="!isRed"></div>
     <input type="checkbox" [(ngModel)]="isRed" />
-    <div [class]="blue"></div>`,
+    <div [class]="blue"></div>
+    <br /><br />
+    <div [style.backgroundColor]="isyellow ? 'yellow' : 'blue'"></div>
+    <div [style.background-color]="!isyellow ? 'yellow' : 'blue'"></div>
+    <input type="checkbox" [(ngModel)]="isyellow" />
+  `,
   styles: [
     `
       div {
@@ -24,5 +30,6 @@ import { Component } from "@angular/core";
 })
 export class AppComponent {
   isRed = false;
+  isyellow = false;
   blue = "isbluebox";
 }
