@@ -24,16 +24,22 @@ import { Component } from "@angular/core";
     <button (click)="increase()">Click</button>
     <p>Кількість кліків {{ count_2 }}</p>
     <button (click)="increase_2($event)">Click</button>
+    <button (click)="disable()" [disabled] = "buttonDisabled">Click to disable</button>
     <p>Привіт {{ name }}</p>
     <input type="text" [(ngModel)]="name" /> <br /><br />
     <input type="text" [(ngModel)]="name" />`,
+    
 })
 export class AppComponent {
   name = "Tom";
   age = 25;
   colspan = 2;
+  buttonDisabled: boolean = false;
   count: number = 0;
   count_2: number = 0;
+  disable(): void{
+    this.buttonDisabled = true;
+  }
   increase(): void {
     this.count++;
   }
