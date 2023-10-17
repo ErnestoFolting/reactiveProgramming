@@ -7,7 +7,6 @@ import { Post } from './app.component';
 })
 export class SearchPipe implements PipeTransform {
   transform(posts: Post[], search: string = ''): Post[] {
-    console.log("From Pipe");
     if (!search.trim()) {
       return posts;
     }
